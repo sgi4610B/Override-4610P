@@ -8,11 +8,11 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing! 
-    {12, 14, 13},     // Left Chassis Ports (negative port will reverse it!)
-    {-3, -18, -17},  // Right Chassis Ports (negative port will reverse it!)
+    {-9, 8, -6},     // Left Chassis Ports (negative port will reverse it!)
+    {10, -3, 7},  // Right Chassis Ports (negative port will reverse it!)
 
-    21,      // IMU Port
-    3.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
+    5,      // IMU Port
+    3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 // Uncomment the trackers you`'re using here!
@@ -58,8 +58,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive\n\nDrive forward and come back", drive_example},
+      {"Drive Example", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
+      {"Red Auton 1 \n Right", red_right},
       {"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
