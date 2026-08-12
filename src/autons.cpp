@@ -57,7 +57,17 @@ void drive_example() {
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
 
-  chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
+  // set heading with pid heading set + wait until
+
+  chassis.pid_swing_set(ez::LEFT_SWING, 90_deg, 82, 22);
+  chassis.pid_wait();
+
+  pros::delay(250);
+
+  chassis.pid_drive_set(6_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+  
+  /*chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
   pros::delay(2000);
 
@@ -67,7 +77,7 @@ void drive_example() {
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
-  pros::delay(2000);
+  pros::delay(2000);*/
 }
 
 ///
@@ -96,8 +106,69 @@ void turn_example() {
 
 void red_right()  {
 
-  chassis.pid_swing_set(ez::LEFT_SWING, 90_deg, 95, 40);
+  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
   chassis.pid_wait();
+
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(11.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
+  chassis.pid_wait();
+
+  pros::delay(750);
+
+  chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(29_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(20.5_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(1000);
+
+  chassis.pid_drive_set(9.3_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(19_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(500);
+
+  chassis.pid_drive_set(-9_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(121_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(22_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(1000);
+
+  chassis.pid_drive_set(6.5_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(500);
+
+  chassis.pid_drive_set(-29_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(12_in, DRIVE_SPEED, true);
+  chassis.pid_wait(); 
 
 }
 
@@ -158,17 +229,20 @@ void swing_example() {
   // The third parameter is the speed of the moving side of the drive
   // The fourth parameter is the speed of the still side of the drive, this allows for wider arcs
 
+  chassis.pid_drive_set(24_in, DRIVE_SPEED);
+  chassis.pid_wait_quick_chain();
+  
   chassis.pid_swing_set(ez::LEFT_SWING, 45_deg, SWING_SPEED, 45);
   chassis.pid_wait();
 
-  chassis.pid_swing_set(ez::RIGHT_SWING, 0_deg, SWING_SPEED, 45);
+  /*chassis.pid_swing_set(ez::RIGHT_SWING, 0_deg, SWING_SPEED, 45);
   chassis.pid_wait();
 
   chassis.pid_swing_set(ez::RIGHT_SWING, 45_deg, SWING_SPEED, 45);
   chassis.pid_wait();
 
   chassis.pid_swing_set(ez::LEFT_SWING, 0_deg, SWING_SPEED, 45);
-  chassis.pid_wait();
+  chassis.pid_wait();*/
 }
 
 ///
@@ -179,19 +253,19 @@ void motion_chaining() {
   // This works by exiting while the robot is still moving a little bit.
   // To use this, replace pid_wait with pid_wait_quick_chain.
   chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
-  chassis.pid_wait();
+  chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(45_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
 
-  chassis.pid_turn_set(-45_deg, TURN_SPEED);
+  /*chassis.pid_turn_set(-45_deg, TURN_SPEED);
   chassis.pid_wait_quick_chain();
 
   chassis.pid_turn_set(0_deg, TURN_SPEED);
-  chassis.pid_wait();
+  chassis.pid_wait();*/
 
   // Your final motion should still be a normal pid_wait
-  chassis.pid_drive_set(-24_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 }
 
