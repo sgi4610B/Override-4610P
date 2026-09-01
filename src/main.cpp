@@ -7,12 +7,23 @@
 
 // Chassis constructor
 ez::Drive chassis(
-    // These are your drive motors, the first motor is used for sensing! 
+
+  //USE THIS FOR THE GHOST BOT
+    /*// These are your drive motors, the first motor is used for sensing! 
     {-9, 8, -6},     // Left Chassis Ports (negative port will reverse it!)
     {10, -3, 7},  // Right Chassis Ports (negative port will reverse it!)
 
     5,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
+    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)*/
+
+  //USE THIS FOR THE REAL BOT
+    // These are your drive motors, the first motor is used for sensing! 
+    {-4, -3},     // Left Chassis Ports (negative port will reverse it!)
+    {2, 20},  // Right Chassis Ports (negative port will reverse it!)
+
+    11,      // IMU Port
+    2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 // Uncomment the trackers you`'re using here!
@@ -60,7 +71,8 @@ void initialize() {
   ez::as::auton_selector.autons_add({
       {"Drive Example", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
-      {"Red Auton 1 \n Right", red_right},
+      {"Turning Right Auton 1 \n Right", red_right},
+      {"Turning Left Auton 1 \n Blue", blue_left},
       {"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
