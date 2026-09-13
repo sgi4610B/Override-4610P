@@ -9,22 +9,22 @@
 ez::Drive chassis(
 
   //USE THIS FOR THE GHOST BOT
-    /*// These are your drive motors, the first motor is used for sensing! 
+    // These are your drive motors, the first motor is used for sensing! 
     {-9, 8, -6},     // Left Chassis Ports (negative port will reverse it!)
     {10, -3, 7},  // Right Chassis Ports (negative port will reverse it!)
 
     5,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)*/
+    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
   //USE THIS FOR THE REAL BOT
-    // These are your drive motors, the first motor is used for sensing! 
+    /*// These are your drive motors, the first motor is used for sensing! 
     {-4, -3},     // Left Chassis Ports (negative port will reverse it!)
     {2, 20},  // Right Chassis Ports (negative port will reverse it!)
 
     11,      // IMU Port
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
+    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)*/
 
 // Uncomment the trackers you`'re using here!
 // - `8` and `9` are smart ports (making these negative will reverse the sensor)
