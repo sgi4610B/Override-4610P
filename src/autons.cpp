@@ -17,7 +17,7 @@ const int SWING_SPEED = 110;
 //USE THIS FOR THE GHOST BOT
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(0, 0.0, 100.0);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_drive_constants_set(20, 0.0, 145.0);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(11.0, 0.0, 20.0);        // Holds the robot straight while going forward without odom
   chassis.pid_turn_constants_set(3.0, 0.05, 20.0, 5);     // Turn in place constants
   chassis.pid_swing_constants_set(6.0, 0.0, 65.0);           // Swing constants
@@ -99,14 +99,26 @@ void drive_example() {
   
   chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
-  pros::delay(2000);
+ // pros::delay(2000);
 
   chassis.pid_drive_set(-6_in, DRIVE_SPEED);
   chassis.pid_wait();
-  pros::delay(2000);
+ // pros::delay(2000);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);  chassis.pid_wait();
-  pros::delay(2000);
+ // pros::delay(2000);
+}
+
+void please_drive(){
+  chassis.pid_drive_set(12_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  pros::delay(500);
+  chassis.pid_drive_set(-18_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  pros::delay(500);
+  chassis.pid_drive_set(6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+  pros::delay(500);
 }
 
 ///
@@ -130,6 +142,8 @@ void turn_example() {
 }
 
 void red_right()  {
+
+  // add changes to skills 
 
   chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -564,3 +578,72 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
+void skills_matchLoadHeavy(){
+
+  // toggle needs to be changed to angle
+
+  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(11.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
+  chassis.pid_wait();
+
+  pros::delay(750);
+
+  chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(29_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(20.5_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(1000);
+
+  chassis.pid_drive_set(9.3_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(19_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(500);
+
+  chassis.pid_drive_set(-9_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(121_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(22_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(1000);
+
+  chassis.pid_drive_set(6.5_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  pros::delay(500);
+
+  chassis.pid_drive_set(-29_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(12_in, DRIVE_SPEED, true);
+  chassis.pid_wait(); 
+
+}
