@@ -15,7 +15,7 @@ const int SWING_SPEED = 110;
 // Constants
 ///
 
-//USE THIS FOR THE GHOST BOT
+/*//USE THIS FOR THE GHOST BOT
 void default_constants() {
   // P, I, D, and Start I
   chassis.pid_drive_constants_set(20, 0.0, 145.0);         // Fwd/rev constants, used for odom and non odom motions
@@ -49,12 +49,14 @@ void default_constants() {
   chassis.odom_boomerang_dlead_set(0.625);     // This handles how aggressive the end of boomerang motions are
 
   chassis.pid_angle_behavior_set(ez::shortest);  // Changes the default behavior for turning, this defaults it to the shortest path there
-}
+}*/
 
 //USE THIS FOR THE REAL BOT
-/*void default_constants() {
+// Looks like weight distribution issue but it's mostly kP oscillation
+// Test kD = 0 to see how much kP is causing oscillation, and continue testing raising kD
+void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(95.5, 23.0, 230);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_drive_constants_set(130, 0.1, 60);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(11.0, 0.0, 20.0);        // Holds the robot straight while going forward without odom
   chassis.pid_turn_constants_set(13.2, 0.006, 40.0, 5);     // Turn in place constants
   chassis.pid_swing_constants_set(6.0, 0.0, 65.0);           // Swing constants
@@ -85,7 +87,7 @@ void default_constants() {
   chassis.odom_boomerang_dlead_set(0.625);     // This handles how aggressive the end of boomerang motions are
 
   chassis.pid_angle_behavior_set(ez::shortest);  // Changes the default behavior for turning, this defaults it to the shortest path there
-}*/
+}
 
 ///
 // Drive Example
@@ -100,26 +102,14 @@ void drive_example() {
   
   chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
- // pros::delay(2000);
+  pros::delay(2000);
 
-  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  /*chassis.pid_drive_set(-6_in, DRIVE_SPEED);
   chassis.pid_wait();
- // pros::delay(2000);
+  pros::delay(2000);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);  chassis.pid_wait();
- // pros::delay(2000);
-}
-
-void please_drive(){
-  chassis.pid_drive_set(12_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  pros::delay(500);
-  chassis.pid_drive_set(-18_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  pros::delay(500);
-  chassis.pid_drive_set(6_in, DRIVE_SPEED);
-  chassis.pid_wait();
-  pros::delay(500);
+  pros::delay(2000);*/
 }
 
 ///

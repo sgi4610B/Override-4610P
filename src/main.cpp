@@ -8,7 +8,7 @@
 // Chassis constructor
 ez::Drive chassis(
 
-  //USE THIS FOR THE GHOST BOT
+  /*//USE THIS FOR THE GHOST BOT
     // These are your drive motors, the first motor is used for sensing! 
     {-9, 8, -6},     // Left Chassis Ports (negative port will reverse it!)
     {10, -3, 7},  // Right Chassis Ports (negative port will reverse it!)
@@ -16,15 +16,20 @@ ez::Drive chassis(
     5,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
-
+*/
   //USE THIS FOR THE REAL BOT
-    /*// These are your drive motors, the first motor is used for sensing! 
-    {-4, -3},     // Left Chassis Ports (negative port will reverse it!)
-    {2, 20},  // Right Chassis Ports (negative port will reverse it!)
+    // These are your drive motors, the first motor is used for sensing! 
+    {-7, -2},     // Left Chassis Ports (negative port will reverse it!)
+    {3, 4},  // Right Chassis Ports (negative port will reverse it!)
 
-    11,      // IMU Port
+    8,      // IMU Port (inertial)
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)*/
+
+// 20 -- Lift motor
+//6 -- toggle left from back
+//5 -- toggle right from back
+//13 -- rotation sensor of height extended
 
 // Uncomment the trackers you`'re using here!
 // - `8` and `9` are smart ports (making these negative will reverse the sensor)
@@ -69,7 +74,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive Example", please_drive},
+      {"Drive Example", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Turning Right Auton 1 \n Right", red_right},
       {"Turning Left Auton 1 \n Blue", blue_left},
@@ -266,9 +271,7 @@ void opcontrol() {
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
-    // . . .
-    // Put more user control code here!
-    // . . .
+    //ADD LIFT MOTOR, ROTATION SENSOR, AND TOGGLES
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
