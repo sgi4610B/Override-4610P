@@ -1,5 +1,5 @@
 #include "main.h"
-//9/18
+//9/20
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
@@ -134,8 +134,11 @@ void turn_example() {
 
 void red_right()  {
 
+  // start with claw closed and lift slightly raised
   // add changes to skills 
 
+  // toggle
+  
   chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
@@ -146,6 +149,8 @@ void red_right()  {
   chassis.pid_wait();
 
   pros::delay(750);
+  // lift lower
+  // claw open to drop preload
 
   chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -157,6 +162,8 @@ void red_right()  {
   chassis.pid_wait();
 
   pros::delay(1000);
+  // claw close to grab pin + cup
+  // lift raise slightly to clear goal
 
   chassis.pid_drive_set(9.3_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -168,6 +175,7 @@ void red_right()  {
   chassis.pid_wait();
 
   pros::delay(500);
+  // claw open to drop pin + cup
 
   chassis.pid_drive_set(-9_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -179,6 +187,8 @@ void red_right()  {
   chassis.pid_wait();
 
   pros::delay(1000);
+  // lift lower to grap pin + cup
+  // claw close 
 
   chassis.pid_drive_set(6.5_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -190,6 +200,8 @@ void red_right()  {
   chassis.pid_wait();
 
   pros::delay(500);
+  // lift raise to clear goal
+  // claw open to release pin + cup 
 
   chassis.pid_drive_set(-29_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -204,6 +216,10 @@ void red_right()  {
 
 void blue_left(){
 
+  // start with claw closed and raised slightly
+
+  // toggle
+  
   chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
@@ -214,6 +230,10 @@ void blue_left(){
   chassis.pid_wait();
 
   pros::delay(750);
+  // lift lower
+  // claw open to drop preload
+  
+  //liftSet(100, 100);
 
   chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -225,6 +245,8 @@ void blue_left(){
   chassis.pid_wait();
 
   pros::delay(1000);
+  // claw close to grab pin + cup
+  // lift raise slightly to clear goal
 
   chassis.pid_drive_set(9.3_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -236,6 +258,7 @@ void blue_left(){
   chassis.pid_wait();
 
   pros::delay(500);
+  // claw open to drop pin + cup
 
   chassis.pid_drive_set(-9_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -247,6 +270,8 @@ void blue_left(){
   chassis.pid_wait();
 
   pros::delay(1000);
+  // lift lower to grap pin + cup
+  // claw close 
 
   chassis.pid_drive_set(6.5_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -258,6 +283,8 @@ void blue_left(){
   chassis.pid_wait();
 
   pros::delay(500);
+  // lift raise to clear goal
+  // claw open to release pin + cup 
 
   chassis.pid_drive_set(-6_in, DRIVE_SPEED, true);
   chassis.pid_wait();

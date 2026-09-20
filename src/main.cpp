@@ -1,4 +1,8 @@
 #include "main.h"
+#include "lift.hpp"
+#include "EZ-Template/api.hpp"
+#include "autons.hpp"
+#include "subsystems.hpp"
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
@@ -261,8 +265,12 @@ void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
 
+  bool toggleLeft_running = false;
+  bool toggleRight_running = false;
+
   while (true) {
     // Gives you some extras to make EZ-Template ezier
+    // add macros
     ez_template_extras();
 
     chassis.opcontrol_tank();  // Tank control
@@ -271,7 +279,48 @@ void opcontrol() {
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
-    //ADD LIFT MOTOR, ROTATION SENSOR, AND TOGGLES
+    if (master.get_digital(DIGITAL_R2)) {
+      bool liftVar = true;
+      lift.move(127);
+    } 
+    else if (master.get_digital(DIGITAL_R1)) {
+      bool liftVar = true;
+      lift.move(-127);
+    } 
+    else {
+      bool liftVar = false;
+      //lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+      //lift.brake();
+      while(liftVar == false){
+        lift.move(3);
+        pros::delay(50);
+        lift.move(-3);
+        pros::delay(50);
+      }
+
+      //FIX THIS
+    }
+
+    if (master.get_digital_new_press(DIGITAL_L1)) {
+      toggleRight_running = !toggleRight_running;
+      toggleLeft_running = !toggleLeft_running;
+    }
+    // Spin the intake if intake_running is true
+    if (toggleRight_running) {
+      toggleRight.move(127);
+      toggleLeft.move(127);
+    }
+    // Stop the intake if intake_running is false 
+    else {
+      toggleRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
+      toggleRight.brake();
+      toggleRight.move(0);
+      toggleLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+      toggleLeft.brake();
+      toggleLeft.move(0);
+    }
+
+    claw.button_toggle(master.get_digital(DIGITAL_L2));
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
