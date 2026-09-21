@@ -161,13 +161,13 @@ void red_right()  {
   claw.set(false);
   pros::delay(750);
 
-  chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-12_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(29_deg, TURN_SPEED);
+  chassis.pid_turn_set(45_deg, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(20.5_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(21_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
   claw.set(true);
@@ -176,8 +176,7 @@ void red_right()  {
   pros::delay(75);
   // claw close to grab pin + cup
   // lift raise slightly to clear goal
-
-  chassis.pid_drive_set(9.3_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(10.5_in, DRIVE_SPEED, true);//was 7.5, which was perfect with initial travel of 24 inches
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, TURN_SPEED);
@@ -189,15 +188,15 @@ void red_right()  {
   pros::delay(500);
   // claw open to drop pin + cup
 
-  chassis.pid_drive_set(-9_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(121_deg, TURN_SPEED);
+  chassis.pid_turn_set(135, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(22_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(49_in, DRIVE_SPEED, true);//49 measurement
   chassis.pid_wait();
-
+//perhaps insert turn so that the claw is facing the loader straight on
   pros::delay(1000);
   // lift lower to grap pin + cup
   // claw close 
