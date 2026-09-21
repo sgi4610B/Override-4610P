@@ -1,4 +1,5 @@
 #include "main.h"
+#include "lift.hpp"
 //9/21
 
 /////
@@ -7,7 +8,7 @@
 /////
 
 // These are out of 127
-const int DRIVE_SPEED = 110;
+const int DRIVE_SPEED = 127;
 const int TURN_SPEED = 90;
 const int SWING_SPEED = 110;
 
@@ -141,25 +142,24 @@ void red_right()  {
   // toggle
   chassis.pid_drive_set(4_in, DRIVE_SPEED, true);
   chassis.pid_wait();
-  chassis.pid_drive_set(-6_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-4_in, DRIVE_SPEED, true);
   chassis.pid_wait();
   chassis.pid_drive_set(4_in, DRIVE_SPEED, true);
   chassis.pid_wait();
-  chassis.pid_drive_set(-6_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(-4_in, DRIVE_SPEED, true);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(17_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(16.5_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(11.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
+  chassis.pid_drive_set(10.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
   chassis.pid_wait();
 
+  claw.set(false);
   pros::delay(750);
-  // lift lower
-  // claw open to drop preload
 
   chassis.pid_drive_set(-7_in, DRIVE_SPEED, true);
   chassis.pid_wait();
@@ -170,7 +170,10 @@ void red_right()  {
   chassis.pid_drive_set(20.5_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  pros::delay(1000);
+  claw.set(true);
+  pros::delay(100);
+  liftSet(20, 127);
+  pros::delay(75);
   // claw close to grab pin + cup
   // lift raise slightly to clear goal
 
