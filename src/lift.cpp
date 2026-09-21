@@ -9,3 +9,12 @@ void liftSet(int input, int velocity){
     }
 
 }
+
+void pulse(){
+    while(1){
+        lift.move(3);
+        pros::delay(50);
+        lift.move(-3);
+        pros::delay(50);
+    }
+}

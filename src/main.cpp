@@ -78,7 +78,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive Example", drive_example},
+      {"Drive Example", turn_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Turning Right Auton 1 \n Right", red_right},
       {"Turning Left Auton 1 \n Blue", blue_left},
@@ -121,7 +121,7 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-  // . . .
+  claw.set(true);
 }
 
 /**
@@ -289,35 +289,28 @@ void opcontrol() {
     } 
     else {
       bool liftVar = false;
-      //lift.set_brake_mode(MOTOR_BRAKE_HOLD);
-      //lift.brake();
-      while(liftVar == false){
-        lift.move(3);
-        pros::delay(50);
-        lift.move(-3);
-        pros::delay(50);
-      }
+      lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+      lift.brake();
+      //thread z (pulse);
 
       //FIX THIS
     }
 
-    if (master.get_digital_new_press(DIGITAL_L1)) {
-      toggleRight_running = !toggleRight_running;
-      toggleLeft_running = !toggleLeft_running;
-    }
-    // Spin the intake if intake_running is true
-    if (toggleRight_running) {
-      toggleRight.move(127);
+    if (master.get_digital(DIGITAL_L1)) {
       toggleLeft.move(127);
-    }
-    // Stop the intake if intake_running is false 
+      toggleRight.move(127);
+    } 
+    else if (master.get_digital(DIGITAL_L2)) {
+      toggleLeft.move(-127);
+      toggleRight.move(-127);
+    } 
     else {
-      toggleRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
-      toggleRight.brake();
-      toggleRight.move(0);
       toggleLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+      toggleRight.set_brake_mode(MOTOR_BRAKE_BRAKE);
       toggleLeft.brake();
-      toggleLeft.move(0);
+      toggleRight.brake();
+
+      //FIX THIS
     }
 
     claw.button_toggle(master.get_digital(DIGITAL_L2));
