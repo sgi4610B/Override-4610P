@@ -297,12 +297,8 @@ void opcontrol() {
     }
 
     if (master.get_digital(DIGITAL_L1)) {
-      toggleLeft.move(127);
-      toggleRight.move(127);
-    } 
-    else if (master.get_digital(DIGITAL_L2)) {
       toggleLeft.move(-127);
-      toggleRight.move(-127);
+      toggleRight.move(127);
     } 
     else {
       toggleLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
