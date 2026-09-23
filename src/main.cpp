@@ -52,7 +52,7 @@ ez::Drive chassis(
 void initialize() {
   // Print our branding over your terminal :D
   ez::ez_template_print();
-
+  
   pros::delay(500);  // Stop the user from doing anything while legacy ports configure
 
   // Look at your horizontal tracking wheel and decide if it's in front of the midline of your robot or behind it
@@ -71,18 +71,18 @@ void initialize() {
 
   // Set the drive to your own constants from autons.cpp!
   default_constants();
-
+  //claw.set(true);
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
   // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
   // chassis.opcontrol_curve_buttons_right_set(pros::E_CONTROLLER_DIGITAL_Y, pros::E_CONTROLLER_DIGITAL_A);
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive Example", turn_example},
+      {"Drive Example", drive_example},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Turning Right Auton 1 \n Right", red_right},
       {"Turning Left Auton 1 \n Blue", blue_left},
-      {"Drive and Turn\n\nDrive forward, turn, come back", drive_and_turn},
+      {"Red right 2", red_right2},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
       {"Motion Chaining\n\nDrive forward, turn, and come back, but blend everything together :D", motion_chaining},
@@ -121,7 +121,11 @@ void disabled() {
  * starts.
  */
 void competition_initialize() {
-  claw.set(true);
+  claw.set(false);
+  liftSet(-100,-100);
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+  //liftSet(100, 120);
 }
 
 /**

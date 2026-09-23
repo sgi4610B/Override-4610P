@@ -105,12 +105,12 @@ void drive_example() {
   chassis.pid_wait();
   pros::delay(50);
 
-  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  /*chassis.pid_drive_set(-6_in, DRIVE_SPEED);
   chassis.pid_wait();
   pros::delay(50);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED);  chassis.pid_wait();
-  pros::delay(50);
+  pros::delay(50);*/
 }
 
 ///
@@ -134,9 +134,18 @@ void turn_example() {
 }
 
 void red_right()  {
+  chassis.drive_angle_set(45_deg);
+  liftSet(-100,-100);
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+  chassis.pid_turn_set(0, TURN_SPEED); 
+  chassis.pid_wait();
+  chassis.pid_drive_set(-4_in, DRIVE_SPEED, true);
+  chassis.pid_wait();
+  //reset inertial value to 
 
   // start with claw closed and lift slightly raised
-  claw.set(true);
+  //claw.set(false);
   // add changes to skills 
 
   // toggle
@@ -146,37 +155,42 @@ void red_right()  {
   chassis.pid_wait();
   chassis.pid_drive_set(4_in, DRIVE_SPEED, true);
   chassis.pid_wait();
-  chassis.pid_drive_set(-4_in, DRIVE_SPEED, true);
-  chassis.pid_wait();
-  
-  chassis.pid_drive_set(16.5_in, DRIVE_SPEED, true);
+ 
+  chassis.pid_drive_set(12_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(10.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
+  chassis.pid_drive_set(13.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
   chassis.pid_wait();
+  
+  chassis.pid_drive_set(-1.5_in, DRIVE_SPEED, true); //with aligner on practice drivebase
+  chassis.pid_wait();
+  liftSet(20,75);
+  //lift.move(-50);
 
-  claw.set(false);
+  pros::delay(150);
+
+  claw.set(true);
   pros::delay(750);
 
   chassis.pid_drive_set(-12_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(45_deg, TURN_SPEED);
+  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(21_in, DRIVE_SPEED, true);
+  chassis.pid_drive_set(22_in, DRIVE_SPEED, true);
   chassis.pid_wait();
-
-  claw.set(true);
+  pros::delay(200);
+  claw.set(false);
   pros::delay(100);
-  liftSet(20, 127);
+  //liftSet(5, 100);
   pros::delay(75);
   // claw close to grab pin + cup
   // lift raise slightly to clear goal
-  chassis.pid_drive_set(10.5_in, DRIVE_SPEED, true);//was 7.5, which was perfect with initial travel of 24 inches
+  chassis.pid_drive_set(17.5_in, DRIVE_SPEED, true);//was 7.5, which was perfect with initial travel of 24 inches
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, TURN_SPEED);
@@ -194,10 +208,11 @@ void red_right()  {
   chassis.pid_turn_set(135, TURN_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(49_in, DRIVE_SPEED, true);//49 measurement
+  chassis.pid_drive_set(49_in, DRIVE_SPEED, true);//49 measurement - goes to match loader sorry
   chassis.pid_wait();
 //perhaps insert turn so that the claw is facing the loader straight on
-  pros::delay(1000);
+//below code is code for going to the second pin and picking it up but it is not aligned correctly with the current plan
+  /*pros::delay(1000);
   // lift lower to grap pin + cup
   // claw close 
 
@@ -222,7 +237,55 @@ void red_right()  {
 
   chassis.pid_drive_set(12_in, DRIVE_SPEED, true);
   chassis.pid_wait(); 
+*/
+}
 
+void red_right2(){
+  //start right in front of preload
+  claw.set(false);
+  // drop in preload
+
+  chassis.pid_drive_set(10_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  pros::delay(250);
+
+  claw.set(true);
+  pros::delay(100);
+
+  // drive back and turn to angle
+
+  chassis.pid_drive_set(-1_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270, TURN_SPEED); 
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(31_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(263, TURN_SPEED); 
+  chassis.pid_wait();
+
+  // use front toggle
+
+  toggleLeft.move(127);
+  pros::delay(150);
+  toggleLeft.set_brake_mode(MOTOR_BRAKE_BRAKE);
+  toggleLeft.brake();
+
+  // back up a little
+
+  chassis.pid_drive_set(-6_in, DRIVE_SPEED);
+  chassis.pid_wait();
+
+  // turn towards 1st pin + cup
+
+  //chassis.pid_turn_set(); ADD TURN TO PIN and CUP
+
+  // turn to goal
+  // drive forward
+  // go to matchload
 }
 
 void blue_left(){
