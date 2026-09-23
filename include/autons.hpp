@@ -6,6 +6,7 @@ void drive_example();
 void please_drive();
 void turn_example();
 void red_right();
+void red_right2();
 void blue_left();
 void drive_and_turn();
 void wait_until_change_speed();
