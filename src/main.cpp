@@ -80,12 +80,12 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive Example", red_right4},
+      {"Drive Example", blue_left},
       {"Turn\n\nTurn 3 times.", turn_example},
-      {"Turning Right Auton 1 \n Right", red_right4},
-      {"Turning Left Auton 1 \n Blue", blue_left3},
-      {"Red right 2", red_right},
-      {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
+      {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
+      {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
+      {"Center Pin Auton 3 \n Goal on Right", red_rightRightMid},
+      {"Cetner Pin Auton 4 \n Goal on Left", blue_leftMid},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
       {"Motion Chaining\n\nDrive forward, turn, and come back, but blend everything together :D", motion_chaining},
       {"Combine all 3 movements", combining_movements},
