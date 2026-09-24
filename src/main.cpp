@@ -82,7 +82,7 @@ void initialize() {
   ez::as::auton_selector.autons_add({
       {"Drive Example", red_right4},
       {"Turn\n\nTurn 3 times.", turn_example},
-      {"Turning Right Auton 1 \n Right", red_right3},
+      {"Turning Right Auton 1 \n Right", red_right4},
       {"Turning Left Auton 1 \n Blue", blue_left3},
       {"Red right 2", red_right},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
