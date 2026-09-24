@@ -72,7 +72,7 @@ void initialize() {
   // Set the drive to your own constants from autons.cpp!
   default_constants();
 
-  claw.set(true);
+  claw.set(false);
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
   // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
@@ -80,11 +80,11 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive Example", drive_example},
+      {"Drive Example", red_right4},
       {"Turn\n\nTurn 3 times.", turn_example},
-      {"Turning Right Auton 1 \n Right", red_right},
-      {"Turning Left Auton 1 \n Blue", blue_left},
-      {"Red right 2", red_right2},
+      {"Turning Right Auton 1 \n Right", red_right3},
+      {"Turning Left Auton 1 \n Blue", blue_left3},
+      {"Red right 2", red_right},
       {"Drive and Turn\n\nSlow down during drive", wait_until_change_speed},
       {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
       {"Motion Chaining\n\nDrive forward, turn, and come back, but blend everything together :D", motion_chaining},
