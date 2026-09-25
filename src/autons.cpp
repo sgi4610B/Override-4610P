@@ -423,7 +423,7 @@ void blue_leftMid(){
   chassis.pid_drive_set(-7.9_in, 70);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-216.7_deg, 50); //more to the right decrease
+  chassis.pid_turn_set(-216.7_deg, 50); //note: oftentimes knocks over pin because too little to the right more to the right decrease
   chassis.pid_wait();
 
   chassis.pid_drive_set(15.2_in, DRIVE_SPEED);
