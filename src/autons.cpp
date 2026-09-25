@@ -1,6 +1,6 @@
 #include "main.h"
 #include "lift.hpp"
-//9/21
+//9/24
 
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
@@ -407,7 +407,7 @@ void blue_leftMid(){
   chassis.pid_wait();
 
   
-  chassis.pid_drive_set(-1.4_in, DRIVE_SPEED);//1.53
+  chassis.pid_drive_set(-1.1_in, DRIVE_SPEED);//1.53
   chassis.pid_wait();
   pros::delay(150);
   
@@ -423,12 +423,12 @@ void blue_leftMid(){
   chassis.pid_drive_set(-7.9_in, 70);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(-221_deg, 90);
+  chassis.pid_turn_set(-216.7_deg, 50); //more to the right decrease
   chassis.pid_wait();
 
-  chassis.pid_drive_set(13.6_in, DRIVE_SPEED);
+  chassis.pid_drive_set(15.2_in, DRIVE_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(6_in, 50);
+  chassis.pid_drive_set(5.52_in, 50);
   chassis.pid_wait();
   chassis.pid_drive_set(3.4_in, 30);
   chassis.pid_wait();
@@ -440,7 +440,7 @@ void blue_leftMid(){
   lift.move(120);
   pros::delay(500);
   lift.brake();
-
+  pros::delay(700);
   chassis.pid_drive_set(-18_in, 60);
   chassis.pid_wait();
 
@@ -450,8 +450,8 @@ void blue_leftMid(){
   chassis.pid_drive_set(10.4_in, 50);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-1.4_in, 50);
-
+  chassis.pid_drive_set(-1.25_in, 50);
+  pros::delay(200);
   lift.move(-50);
   pros::delay(500);
   lift.brake();
