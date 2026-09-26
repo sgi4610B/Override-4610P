@@ -15,7 +15,7 @@ inline pros::Motor toggleLeft(6);
 inline pros::Motor toggleRight(5);
 //inline pros::Rotation liftSensor(10);
 inline ez::Piston claw('A');
-
+inline ez::Piston doinker('B');
 
 // 20 -- Lift motor
 //6 -- toggle left from back

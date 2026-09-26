@@ -80,7 +80,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", skills_attempt1},
+      {"Current", red_rightRightMid},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
@@ -316,6 +316,8 @@ void opcontrol() {
     }
 
     claw.button_toggle(master.get_digital(DIGITAL_L2));
+    
+    doinker.button_toggle(master.get_digital(DIGITAL_UP));
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
