@@ -16,6 +16,7 @@ void red_rightRightCenter();
 void blue_leftMid();
 void blue_leftLeftCenter();
 void blue_left();
+void skills_attempt1();
 void drive_and_turn();
 void wait_until_change_speed();
 void swing_example();
