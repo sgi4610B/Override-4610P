@@ -316,6 +316,8 @@ void opcontrol() {
     }
 
     claw.button_toggle(master.get_digital(DIGITAL_L2));
+    
+    doinker.button_toggle(master.get_digital(DIGITAL_UP));
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }

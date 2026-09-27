@@ -254,7 +254,7 @@ void red_rightRightMid(){
 
   chassis.pid_drive_set(13.6_in, DRIVE_SPEED);
   chassis.pid_wait();
-  chassis.pid_drive_set(6_in, 50);
+  chassis.pid_drive_set(6.2_in, 50);
   chassis.pid_wait();
   chassis.pid_drive_set(3.4_in, 30);
   chassis.pid_wait();
@@ -553,7 +553,7 @@ void blue_leftMid(){
   claw.set(true);
   pros::delay(150);
 
-  chassis.pid_drive_set(-7.9_in, 70);
+  chassis.pid_drive_set(-8.1_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(-216.7_deg, 50); //note: oftentimes knocks over pin because too little to the right more to the right decrease
@@ -600,7 +600,7 @@ void blue_leftMid(){
   chassis.pid_turn_set(180_deg, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-17_in, 80);
+  chassis.pid_drive_set(-17_in, 100);
   chassis.pid_wait();
   chassis.pid_drive_set(4_in, 90);
   chassis.pid_wait();
@@ -639,7 +639,7 @@ void blue_leftLeftCenter(){
   claw.set(true);
   pros::delay(150);
 
-  chassis.pid_drive_set(-11.6_in, 90);
+  chassis.pid_drive_set(-12.75_in, 90);
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, 90);
@@ -659,8 +659,9 @@ void blue_leftLeftCenter(){
   pros::delay(200);
 
   lift.move(120);
-  pros::delay(500);
+  pros::delay(575);
   lift.brake();
+  pros::delay(50);
 
   chassis.pid_drive_set(-15.5_in, 60);
   chassis.pid_wait();
@@ -671,7 +672,7 @@ void blue_leftLeftCenter(){
   chassis.pid_drive_set(14.4_in, 50);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-1.4_in, 50);
+  chassis.pid_drive_set(-1.25_in, 50);
 
   lift.move(-50);
   pros::delay(500);
@@ -688,11 +689,11 @@ void blue_leftLeftCenter(){
   chassis.pid_turn_set(180_deg, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-17_in, 80);
+  chassis.pid_drive_set(-17_in, 100);
   chassis.pid_wait();
   chassis.pid_drive_set(4_in, 90);
   chassis.pid_wait();
-  chassis.pid_drive_set(-9.5_in, 70);
+  chassis.pid_drive_set(-9.5_in, 75);
   chassis.pid_wait();
   chassis.pid_drive_set(6_in, 90);
   chassis.pid_wait();
