@@ -80,14 +80,14 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", red_rightRightMid},
+      {"Current", skills_attempt2},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
       {"Center Pin Auton 3 \n Goal on Right", red_rightRightMid},
       {"Cetner Pin Auton 4 \n Goal on Left", blue_leftMid},
-      {"Swing Turn\n\nSwing in an 'S' curve", swing_example},
-      {"Motion Chaining\n\nDrive forward, turn, and come back, but blend everything together :D", motion_chaining},
+      {"Right Just Preload", right_JustPreload},
+      {"Left Just Preload", left_JustPreload},
       {"Combine all 3 movements", combining_movements},
       {"Interference\n\nAfter driving forward, robot performs differently if interfered or not", interfered_example},
       {"Simple Odom\n\nThis is the same as the drive example, but it uses odom instead!", odom_drive_example},
