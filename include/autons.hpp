@@ -19,6 +19,7 @@ void blue_left();
 void left_JustPreload();
 void right_JustPreload();
 void skills_attempt2();
+void skills_attempt3();
 void skills_attempt1();
 void drive_and_turn();
 void wait_until_change_speed();

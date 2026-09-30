@@ -1527,3 +1527,117 @@ void skills_matchLoadHeavy(){
   chassis.pid_wait(); 
 
 }
+
+void skills_attempt3(){
+
+  // set starting position to facing alliance goal
+  chassis.drive_angle_set(315_deg);
+
+  // score preload 
+  lift.move(85);
+  pros::delay(400);
+  lift.set_brake_mode_all(MOTOR_BRAKE_HOLD);
+  lift.brake();
+  
+  chassis.pid_drive_set(12.25_in, 75);
+  chassis.pid_wait();
+
+  lift.move(-50);
+  pros::delay(200);
+  claw.set(true);
+  pros::delay(150);
+  lift.brake();
+
+  // grab pin to left
+
+  chassis.pid_drive_set(-6.5_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(52_deg, 55);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(9.5_in, 50);
+  chassis.pid_wait();
+
+  claw.set(false);
+
+  // score pin
+
+  lift.move(127);
+  chassis.pid_drive_set(12_in, 80);
+  chassis.pid_wait();
+  lift.brake();
+
+  chassis.pid_turn_set(270_deg, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(18.5_in, 80);
+  chassis.pid_wait();
+
+  pros::delay(75);
+
+  lift.move(-50);
+  pros::delay(200);
+  claw.set(true);
+  pros::delay(150);
+  lift.brake();
+  pros::delay(50);
+
+  // get matchload
+
+  lift.move(-85);
+  pros::delay(250);
+  lift.brake();
+
+  chassis.pid_drive_set(-22_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180_deg, 90);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(12_in, 55);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+
+  // score matchload
+
+  lift.move(110);
+
+  chassis.pid_drive_set(-11.7_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270_deg, 60);
+  chassis.pid_wait();
+
+  lift.brake();
+
+  chassis.pid_drive_set(23.5_in, 55);
+  chassis.pid_wait();
+
+  lift.move(-50);
+  pros::delay(350);
+  claw.set(true);
+  pros::delay(75);
+
+  lift.brake();
+
+  // get matchload
+
+  // score matchload
+
+  // toggle
+
+  // get just pin from matchload
+
+  // put on other alliance goal
+
+  // get + score matchload x3
+
+  // toggle
+
+  // park
+
+}
