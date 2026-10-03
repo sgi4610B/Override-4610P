@@ -1542,7 +1542,7 @@ void skills_attempt3(){
   chassis.pid_drive_set(12.25_in, 75);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-1.25_in, 75);
+  chassis.pid_drive_set(-1.7_in, 55);
   chassis.pid_wait();
   
   lift.move(-35);
@@ -1590,7 +1590,7 @@ void skills_attempt3(){
   pros::delay(250);
   lift.brake();
 
-  chassis.pid_drive_set(-22_in, 70);
+  chassis.pid_drive_set(-24_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, 90);
@@ -1615,7 +1615,7 @@ void skills_attempt3(){
 
   lift.brake();
 
-  chassis.pid_drive_set(27_in, 55);
+  chassis.pid_drive_set(30_in, 55);
   chassis.pid_wait();
 
   lift.move(-50);
@@ -1627,10 +1627,10 @@ void skills_attempt3(){
 
   // get matchload
   lift.move(-110);
-  pros::delay(250);
+  pros::delay(400);
   lift.brake();
 
-  chassis.pid_drive_set(-22_in, 70);
+  chassis.pid_drive_set(-24_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, 90);
@@ -1654,7 +1654,7 @@ void skills_attempt3(){
 
   lift.brake();
 
-  chassis.pid_drive_set(27_in, 55);
+  chassis.pid_drive_set(31_in, 55);
   chassis.pid_wait();
 
   lift.move(-120);
@@ -1665,38 +1665,38 @@ void skills_attempt3(){
   
 
   // toggle
-  lift.move(-300);
-  pros::delay(250);
+  lift.move(-110);
+  pros::delay(500);
 
   lift.brake();
-  chassis.pid_drive_set(-7_in, 70);
+  chassis.pid_drive_set(-10_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(180_deg, 60);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(5_in, 70);
+  chassis.pid_drive_set(10.5_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270_deg, 60);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(36_in, 70);
+  chassis.pid_drive_set(46.35_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0_deg, 60);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-10_in, 70);
+  chassis.pid_drive_set(-5_in, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(6_in, 70);
+  chassis.pid_drive_set(5_in, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-6_in, 70);
+  chassis.pid_drive_set(-5_in, 90);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(6_in, 70);
+  chassis.pid_drive_set(5_in, 90);
   chassis.pid_wait();
 
 
