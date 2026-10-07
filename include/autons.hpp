@@ -16,6 +16,7 @@ void red_rightRightCenter();
 void blue_leftMid();
 void blue_leftLeftCenter();
 void blue_left();
+void skills_attempt3andahalf();
 void left_JustPreload();
 void right_JustPreload();
 void skills_attempt2();

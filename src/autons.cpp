@@ -1686,9 +1686,13 @@ void skills_attempt3(){
   chassis.pid_drive_set(-20_in, 55);
   chassis.pid_wait();
   
+
+  // CHANGE THIS -- MAKES FOLLOWING TURN NOT WORK 
+  /*
   lift.move(-110);
   pros::delay(450);
-  lift.brake();
+  lift.brake();*/
+  // CHANGE CHANGE CHANGE THIS
 
   pros::delay(75);
   chassis.pid_turn_set(180_deg, 70);
@@ -1730,4 +1734,158 @@ void skills_attempt3(){
 
   // park
 
+}
+
+void skills_attempt3andahalf(){
+
+  chassis.drive_angle_set(270_deg);
+  claw.set(true);
+
+  chassis.pid_drive_set(-5_in, 55);
+  chassis.pid_wait();
+
+  lift.move(-110);
+  pros::delay(400);
+  lift.brake();
+
+  chassis.pid_drive_set(-21.5_in, 85);
+  chassis.pid_wait();
+  
+  lift.move(-110);
+  pros::delay(450);
+  lift.brake();
+
+  pros::delay(75);
+  chassis.pid_turn_set(180_deg, 90);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  chassis.pid_drive_set(12.25_in, 45);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+
+  // put on other alliance goal
+
+  chassis.pid_drive_set(-20_in, 55);
+  chassis.pid_wait();
+
+  lift.move(55);
+  chassis.pid_turn_set(-42.5_deg, 55);
+  chassis.pid_wait();
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+
+  chassis.pid_drive_set(15_in, 60);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(4_in, 35);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-1.4_in, 35);
+  chassis.pid_wait();
+
+  lift.move(-35);
+  pros::delay(250);
+  claw.set(true);
+  pros::delay(150);
+  lift.move(70);
+  pros::delay(75);
+  lift.brake();
+
+  chassis.pid_drive_set(-8.5_in, 80);
+  chassis.pid_wait();
+
+  // get + score matchload #1
+
+  pros::delay(75);
+  chassis.pid_turn_set(179.9_deg, 65);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  chassis.pid_drive_set(17_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(6_in, 45);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+
+  // put alliance goal pin/cup #1
+
+  chassis.pid_drive_set(-12_in, 55);
+  chassis.pid_wait();
+
+  lift.move(85);
+  chassis.pid_turn_set(-30_deg, 55);
+  chassis.pid_wait();
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+
+  chassis.pid_drive_set(18_in, 60);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-1.3_in, 60);
+  chassis.pid_wait();
+
+  lift.move(-45);
+  pros::delay(250);
+  claw.set(true);
+  pros::delay(150);
+  lift.move(70);
+  pros::delay(75);
+  lift.brake();
+
+  lift.move(-110);
+  chassis.pid_drive_set(-11_in, 80);
+  chassis.pid_wait();
+  lift.brake();
+
+  // get + score matchload #2
+
+  pros::delay(75);
+  chassis.pid_turn_set(180_deg, 70);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  chassis.pid_drive_set(17_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(3_in, 45);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+
+  // put alliance goal pin/cup #2
+
+  chassis.pid_drive_set(-12_in, 55);
+  chassis.pid_wait();
+
+  lift.move(110);
+  chassis.pid_turn_set(-30_deg, 55);
+  chassis.pid_wait();
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+
+  chassis.pid_drive_set(18_in, 60);
+  chassis.pid_wait();
+
+  lift.move(-50);
+  pros::delay(250);
+  claw.set(true);
+  pros::delay(150);
+  lift.move(70);
+  pros::delay(75);
+  lift.brake();
+
+  // toggle
+
+  // park
+  
 }

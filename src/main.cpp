@@ -26,7 +26,7 @@ ez::Drive chassis(
     {-7, -2},     // Left Chassis Ports (negative port will reverse it!)
     {3, 4},  // Right Chassis Ports (negative port will reverse it!)
 
-    8,      // IMU Port (inertial)
+    10,      // IMU Port (inertial)
     2.75,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)*/
 
@@ -80,7 +80,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", skills_attempt3},
+      {"Current", skills_attempt3andahalf},
       {"Turn\n\nTurn 3 times.", turn_example},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
