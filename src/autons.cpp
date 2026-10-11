@@ -59,7 +59,7 @@ void default_constants() {
   // P, I, D, and Start I
   chassis.pid_drive_constants_set(10.6, 0.1, 8);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(11.0, 0.0, 20.0);        // Holds the robot straight while going forward without odom
-  chassis.pid_turn_constants_set(4.5, 0.006, 25.9, 5);     // Turn in place constants 4.75
+  chassis.pid_turn_constants_set(3.907, 0.006, 25.9, 5);     // Turn in place constants 4.75
   chassis.pid_swing_constants_set(6.0, 0.0, 65.0);           // Swing constants
   chassis.pid_odom_angular_constants_set(6.5, 0.0, 52.5);    // Angular control for odom motions
   chassis.pid_odom_boomerang_constants_set(5.8, 0.0, 32.5);  // Angular control for boomerang motions
@@ -116,19 +116,19 @@ void drive_example() {
 ///
 // Turn Example
 ///
+void printToBrain(){
+  while(true){
+      pros::screen::print(pros::E_TEXT_LARGE,3,"Heading: %f",(chassis.drive_imu_get()));
+      pros::delay(50);
+  }
+  
+}
 void turn_example() {
+  pros::Task ptb(printToBrain);
   // The first parameter is the target in degrees
   // The second parameter is max speed the robot will drive at
 
-  chassis.pid_turn_set(90_deg, TURN_SPEED);
-  chassis.pid_wait();
-  pros::delay(50);
-
   chassis.pid_turn_set(180_deg, TURN_SPEED);
-  chassis.pid_wait();
-  pros::delay(50);
-
-  chassis.pid_turn_set(0_deg, TURN_SPEED);
   chassis.pid_wait();
   pros::delay(50);
 }
