@@ -59,7 +59,7 @@ void default_constants() {
   // P, I, D, and Start I
   chassis.pid_drive_constants_set(10.6, 0.1, 8);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(11.0, 0.0, 20.0);        // Holds the robot straight while going forward without odom
-  chassis.pid_turn_constants_set(3.907, 0.006, 25.9, 5);     // Turn in place constants 4.75
+  chassis.pid_turn_constants_set(3.925, 0.006, 25.9, 5);     // Turn in place constants 4.75
   chassis.pid_swing_constants_set(6.0, 0.0, 65.0);           // Swing constants
   chassis.pid_odom_angular_constants_set(6.5, 0.0, 52.5);    // Angular control for odom motions
   chassis.pid_odom_boomerang_constants_set(5.8, 0.0, 32.5);  // Angular control for boomerang motions
@@ -115,7 +115,7 @@ void drive_example() {
 
 ///
 // Turn Example
-///
+
 void printToBrain(){
   while(true){
       pros::screen::print(pros::E_TEXT_LARGE,3,"Heading: %f",(chassis.drive_imu_get()));
@@ -128,7 +128,7 @@ void turn_example() {
   // The first parameter is the target in degrees
   // The second parameter is max speed the robot will drive at
 
-  chassis.pid_turn_set(180_deg, TURN_SPEED);
+  chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
   pros::delay(50);
 }
@@ -1534,62 +1534,63 @@ void skills_attempt3(){
   chassis.drive_angle_set(315_deg);
 
   // score preload 
-  chassis.pid_drive_set(3, 75);
+  chassis.pid_drive_set(3.5, 75);
   chassis.pid_wait();
 
-  lift.move(95);
-  pros::delay(500);
+  lift.move(100);
+  pros::delay(220);
   lift.set_brake_mode_all(MOTOR_BRAKE_HOLD);
   lift.brake();
   
-  chassis.pid_drive_set(9.25_in, 75);
+  chassis.pid_drive_set(8.75_in, 75);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-1.3_in, 55);
   chassis.pid_wait();
   
   lift.move(-35);
-  pros::delay(0);
   claw.set(true);
   //placed first pin in goal
   pros::delay(200);
   lift.brake();
 
-  // grab pin to left
+  pros::delay(75);
 
-  lift.move(-110);
-  pros::delay(250);
-  lift.brake();
-
+  lift.move(30);
+  pros::delay(75);
   chassis.pid_drive_set(-6.5_in, 70);
   chassis.pid_wait();
 
+  // grab pin to left
+
   chassis.pid_turn_set(48_deg, 55);
   chassis.pid_wait();
-
-  chassis.pid_drive_set(9.6_in, 55);
+  
+  lift.move(-110);
+  chassis.pid_drive_set(10_in, 40);
   chassis.pid_wait();
+  lift.brake();
   claw.set(false);
 
   // score pin
 
-  lift.move(127);
-  chassis.pid_drive_set(12_in, 80);
+  lift.move(110);
+  chassis.pid_drive_set(19_in, 25);
   chassis.pid_wait();
-  pros::delay(150);
+  pros::delay(50);
   lift.brake();
   chassis.pid_turn_set(270_deg, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(18.5_in, 80);
+  chassis.pid_drive_set(19_in, 80);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(-4.3_in, 70);
+  chassis.pid_drive_set(-1.5_in, 70);
   chassis.pid_wait();
 
   pros::delay(75);
-  lift.move(-50);
-  pros::delay(250);
+  lift.move(-35);
+  pros::delay(375);
   claw.set(true);
   pros::delay(150);
   lift.brake();
@@ -1599,11 +1600,9 @@ void skills_attempt3(){
   // get matchload
 
   lift.move(-110);
-  pros::delay(250);
-  lift.brake();
-
   chassis.pid_drive_set(-23.7_in, 70);
   chassis.pid_wait();
+  lift.brake();
 
   chassis.pid_turn_set(180_deg, 90);
   chassis.pid_wait();
