@@ -5,6 +5,8 @@ void default_constants();
 void drive_example();
 void please_drive();
 void turn_example();
+void lift_test();
+void printToBrain2();
 void red_right();
 void red_right2();
 void red_right3();

@@ -1,5 +1,9 @@
 #include "main.h"
 #include "lift.hpp"
+
+
+
+
 //9/24
 
 /////
@@ -124,6 +128,13 @@ void printToBrain(){
   }
   
 }
+
+void printToBrain2(){
+  //pros::screen::print(pros::E_TEXT_LARGE, 2, "Heading: %f", (chassis.drive_imu_get()));
+  pros::screen::print(pros::E_TEXT_LARGE, 5, "Lift Sensor: %i", (liftSensor.get_angle()));
+  pros::delay(50);   
+}
+
 void turn_example() {
   pros::Task ptb(printToBrain);
   // The first parameter is the target in degrees
@@ -132,6 +143,16 @@ void turn_example() {
   chassis.pid_turn_set(90_deg, TURN_SPEED);
   chassis.pid_wait();
   pros::delay(50);
+}
+
+void lift_test(){
+
+  lift_reset(21, 100);
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+
+  pros::delay(100);
+
 }
 
 void red_right3(){
@@ -1024,7 +1045,7 @@ void red_right()  {
 
   claw.set(true);
   pros::delay(100);
-  liftSet(20, 127);
+  lift_reset(20, 127);
   pros::delay(75);
   // claw close to grab pin + cup
   // lift raise slightly to clear goal

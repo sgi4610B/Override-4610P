@@ -81,7 +81,7 @@ void initialize() {
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
       {"Current", skills_attempt3},
-      {"Turn\n\nTurn 3 times.", turn_example},
+      {"Current testing: Lift rotation sensor", lift_test},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
       {"Center Pin Auton 3 \n Goal on Right", red_rightRightMid},
@@ -124,7 +124,7 @@ void disabled() {
  */
 void competition_initialize() {
   claw.set(false);
-  liftSet(-100,-100);
+  lift_reset(-100,-100);
   lift.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.brake();
   //liftSet(100, 120);
@@ -284,7 +284,7 @@ void opcontrol() {
     // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
-
+    
     if (master.get_digital(DIGITAL_R2)) {
       bool liftVar = true;
       lift.move(127);
@@ -293,6 +293,10 @@ void opcontrol() {
       bool liftVar = true;
       lift.move(-127);
     } 
+    else if (master.get_digital(DIGITAL_A)){
+      bool liftVar = true;
+      lift_no_reset(24, 70);
+    }
     else {
       bool liftVar = false;
       lift.set_brake_mode(MOTOR_BRAKE_HOLD);

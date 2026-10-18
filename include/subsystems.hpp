@@ -13,7 +13,7 @@ extern Drive chassis;
 //inline pros::Motor lift(21);
 inline pros::Motor toggleLeft(6);
 inline pros::Motor toggleRight(5);
-//inline pros::Rotation liftSensor(10);
+//inline pros::Rotation liftSensor(19);
 inline ez::Piston claw('A');
 inline ez::Piston doinker('B');
 

@@ -4,7 +4,8 @@
 #include "api.h"
 
 inline pros::Motor lift(21); 
-inline pros::Rotation liftSensor(10);
+inline pros::Rotation liftSensor(19);
 
-void liftSet(int input, int velocity);
+void lift_reset(int inp, int velo);
+void lift_no_reset(int inp, int velo);
 void pulse();
