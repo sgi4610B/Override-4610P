@@ -295,7 +295,8 @@ void opcontrol() {
     } 
     else if (master.get_digital(DIGITAL_A)){
       bool liftVar = true;
-      lift_no_reset(24, 70);
+      liftSensor.set_position(1);
+      lift_no_reset(24);
     }
     else {
       bool liftVar = false;
