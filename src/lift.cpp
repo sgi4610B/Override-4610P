@@ -59,6 +59,31 @@ void lift_pid(){
 
 }
 
+void lift_pid_basic(int inp, int velo){
+    lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+    double error = inp - lift.get_position()/100;
+    double current = 1;
+
+    if (inp - fabs(lift.get_position()/100) > 0){
+        current = velo;
+    }
+    else{
+        current = -velo;
+    }
+
+    while(error > 0){
+
+        pros::screen::print(pros::E_TEXT_LARGE,3,"Lift Sensor: %i",(inp - liftSensor.get_position()/100));
+
+        lift.move(current);
+        error = fabs(inp - lift.get_position()/100);
+
+    }
+
+    pros::screen::print(pros::E_TEXT_LARGE,7,"exiting");
+    lift.brake();
+}
+
 void pulse(){
     while(1){
         lift.move(3);

@@ -80,7 +80,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", skills_attempt3},
+      {"Current", skills_attempt3andahalf},
       {"Current testing: Lift rotation sensor", lift_test},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
@@ -295,8 +295,7 @@ void opcontrol() {
     } 
     else if (master.get_digital(DIGITAL_A)){
       bool liftVar = true;
-      liftSensor.set_position(1);
-      lift_no_reset(24);
+      lift.move_absolute(1200, 70);
     }
     else {
       bool liftVar = false;

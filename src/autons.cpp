@@ -1866,7 +1866,7 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  lift.move(-110);
+  lift.move(-120);
   chassis.pid_drive_set(-11_in, 80);
   chassis.pid_wait();
   lift.brake();
@@ -1894,7 +1894,7 @@ void skills_attempt3andahalf(){
   chassis.pid_wait();
 
   lift.move(110);
-  chassis.pid_turn_set(-30_deg, 55);
+  chassis.pid_turn_set(-27.5_deg, 55);
   chassis.pid_wait();
   lift.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.brake();
@@ -1910,7 +1910,97 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  // toggle
+  lift.move(-110);
+  chassis.pid_drive_set(-13_in, 80);
+  chassis.pid_wait();
+  lift.brake();
+
+  // get + score matchload #3
+
+  pros::delay(50);
+  chassis.pid_turn_set(179.9_deg, 70);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  chassis.pid_drive_set(17_in, 70);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(3_in, 45);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+
+  // put alliance goal pin/cup #3
+
+  chassis.pid_drive_set(-12_in, 55);
+  chassis.pid_wait();
+
+  lift.move(120);
+  chassis.pid_turn_set(-25_deg, 55);
+  chassis.pid_wait();
+  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
+  lift.brake();
+
+  chassis.pid_drive_set(18_in, 60);
+  chassis.pid_wait();
+
+  lift.move(-80);
+  pros::delay(250);
+  claw.set(true);
+  pros::delay(150);
+  lift.move(70);
+  pros::delay(75);
+  lift.brake();
+
+  // toggle 1
+
+  lift.move(-110);
+  chassis.pid_drive_set(-8_in, 80);
+  chassis.pid_wait();
+  lift.brake();
+
+  chassis.pid_turn_set(0, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(36, 80);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(270, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-10_in, 80);
+  chassis.pid_wait();
+  chassis.pid_drive_set(4_in, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-9.5_in, 80);
+  chassis.pid_wait();
+  chassis.pid_drive_set(15_in, 90);
+  chassis.pid_wait();
+
+  // toggle 2
+
+  /*chassis.pid_swing_set(ez::RIGHT_SWING, 180, 120, 90);
+  chassis.pid_wait();*/
+
+  chassis.pid_turn_set(75, 85);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-55, 85);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(180, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-15_in, 80);
+  chassis.pid_wait();
+  chassis.pid_drive_set(4_in, 90);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-9.5_in, 80);
+  chassis.pid_wait();
+  chassis.pid_drive_set(6_in, 90);
+  chassis.pid_wait();
 
   // park
   
