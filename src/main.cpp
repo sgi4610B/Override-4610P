@@ -80,8 +80,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", skills_attempt3andahalf},
-      {"Skills 3", skills_attempt3},
+      {"Current", skills_attempt3},
+      {"Skills 3.5", skills_attempt3andahalf},
       {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
       {"Center Pin Auton 3 \n Goal on Right", red_rightRightMid},
@@ -301,9 +301,11 @@ void opcontrol() {
       bool liftVar = false;
       lift.set_brake_mode(MOTOR_BRAKE_HOLD);
       lift.brake();
-      //thread z(pulse);
+      /*pulse_up();
+      lift.brake();*/
 
-      //FIX THIS
+      // FIX LATER
+
     }
 
     if (master.get_digital(DIGITAL_L1)) {

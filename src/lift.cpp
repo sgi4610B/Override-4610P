@@ -84,11 +84,17 @@ void lift_pid_basic(int inp, int velo){
     lift.brake();
 }
 
-void pulse(){
-    while(1){
-        lift.move(3);
-        pros::delay(50);
-        lift.move(-3);
-        pros::delay(50);
-    }
+void pulse_up(){
+
+    lift.move(80);
+    pros::delay(25);
+    lift.move(-60);
+    pros::delay(25);
+}
+
+void pulse_down(){
+
+    lift.move_relative(-3, -25);
+    pros::delay(50);
+
 }

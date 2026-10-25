@@ -1559,11 +1559,12 @@ void skills_attempt3(){
   chassis.pid_drive_set(3.5, 75);
   chassis.pid_wait();
 
-  lift.move(60);
-  pros::delay(220);
+  lift.move_absolute(375, 90);
+  pros::delay(400);
   lift.set_brake_mode_all(MOTOR_BRAKE_HOLD);
   lift.brake();
   
+
   chassis.pid_drive_set(8.75_in, 75);
   chassis.pid_wait();
 
@@ -1591,44 +1592,42 @@ void skills_attempt3(){
   pros::delay(150);
   lift.brake();
 
-  chassis.pid_turn_set(48_deg, 55);
+  chassis.pid_turn_set(48.8_deg, 55);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(10_in, 40);
+  chassis.pid_drive_set(9.7_in, 40);
   chassis.pid_wait();
   pros::delay(75);
   claw.set(false);
 
   // score pin
+  lift.move_absolute(850, 70);
+  
   chassis.pid_drive_set(9_in, 80);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270_deg, 80);
   chassis.pid_wait();
 
-  lift.move(100);
-  pros::delay(200);
-  lift.brake();
+  pros::delay(150);
 
-  chassis.pid_drive_set(19_in, 80);
+  chassis.pid_drive_set(19_in, 70);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(-1.5_in, 70);
+  chassis.pid_drive_set(-1.5_in, 65);
   chassis.pid_wait();
 
   pros::delay(75);
-  lift.move(-30);
-  pros::delay(50);
-  claw.set(true);
+  lift.move_absolute(100, 70);
   pros::delay(150);
+  claw.set(true);
+  pros::delay(50);
   lift.brake();
-  pros::delay(50);  
   //pin scored in goal
   
   // get matchload
 
-  lift.move(-110);
-  lift.brake();
+  lift.move_absolute(0, 110);
   chassis.pid_drive_set(-23.7_in, 70);
   chassis.pid_wait();
   
@@ -1643,9 +1642,13 @@ void skills_attempt3(){
   claw.set(false);
   pros::delay(75);
 
+  lift.move_absolute(100, 100);
+  pros::delay(75);
+
   // score matchload
 
-  chassis.pid_drive_set(-13_in, 70);
+  lift.move_absolute(1600, 70);
+  chassis.pid_drive_set(-11.25_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270_deg, 60);
@@ -1659,26 +1662,23 @@ void skills_attempt3(){
   chassis.pid_drive_set(-1.3_in, 55);
   chassis.pid_wait();
   
-
   lift.move(-10);
   pros::delay(320);
   claw.set(true);
   pros::delay(75);
-
-  
 
   // get matchload
   lift.move(-110);
   pros::delay(550);
   lift.brake();
 
-  chassis.pid_drive_set(-23.7_in, 70);
+  chassis.pid_drive_set(-25_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(179.5_deg, 60);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(13_in, 55);
+  chassis.pid_drive_set(14.5_in, 55);
   chassis.pid_wait();
 
   pros::delay(75);
@@ -1688,7 +1688,7 @@ void skills_attempt3(){
   // score matchload
   lift.move(110);
 
-  chassis.pid_drive_set(-11.7_in, 70);
+  chassis.pid_drive_set(-11_in, 70);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270_deg, 60);
@@ -1705,66 +1705,6 @@ void skills_attempt3(){
   pros::delay(75);
   lift.brake();
 
-  // get just pin from matchload
-
-  chassis.pid_drive_set(-5_in, 55);
-  chassis.pid_wait();
-
-  lift.move(-110);
-  pros::delay(400);
-  lift.brake();
-
-  chassis.pid_drive_set(-20_in, 55);
-  chassis.pid_wait();
-  
-
-  // CHANGE THIS -- MAKES FOLLOWING TURN NOT WORK 
-  /*
-  lift.move(-110);
-  pros::delay(450);
-  lift.brake();*/
-  // CHANGE CHANGE CHANGE THIS
-
-  pros::delay(75);
-  chassis.pid_turn_set(180_deg, 70);
-  chassis.pid_wait();
-
-  pros::delay(75);
-  chassis.pid_drive_set(28_in, 45);
-  chassis.pid_wait();
-
-  pros::delay(75);
-  claw.set(false);
-  pros::delay(75);
-
-  // put on other alliance goal
-
-  chassis.pid_drive_set(-20_in, 55);
-  chassis.pid_wait();
-
-  lift.move(50);
-  chassis.pid_turn_set(-25_deg, 55);
-  chassis.pid_wait();
-  lift.brake();
-
-  chassis.pid_drive_set(8_in, 60);
-  chassis.pid_wait();
-
-  lift.move(-35);
-  pros::delay(400);
-  claw.set(true);
-  pros::delay(150);
-  lift.brake();
-
-  chassis.pid_drive_set(-5_in, 60);
-  chassis.pid_wait();
-
-  // get + score matchload x3
-
-  // toggle
-
-  // park
-
 }
 
 void skills_attempt3andahalf(){
@@ -1779,7 +1719,9 @@ void skills_attempt3andahalf(){
   pros::delay(400);
   lift.brake();
 
-  chassis.pid_drive_set(-23.5_in, 85);
+  liftSensor.set_position(0);
+
+  chassis.pid_drive_set(-20.5_in, 85);
   chassis.pid_wait();
 
   pros::delay(75);
@@ -1795,14 +1737,13 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   //grabbed the pin 
 
-
   // put on other alliance goal
 
-  chassis.pid_drive_set(-20_in, 55);
+  chassis.pid_drive_set(-19_in, 55);
   chassis.pid_wait();
 
   lift.move(80);
-  chassis.pid_turn_set(-42.5_deg, 55);
+  chassis.pid_turn_set(-27.5_deg, 55);
   chassis.pid_wait();
   lift.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.brake();
@@ -1816,19 +1757,19 @@ void skills_attempt3andahalf(){
   chassis.pid_drive_set(-1.4_in, 35);
   chassis.pid_wait();
 
-  lift.move(-35);
+  lift.move_absolute(200, 60);
   pros::delay(250);
   claw.set(true);
-  pros::delay(150);
-  lift.move(70);
+  lift.move_absolute(500, 70);
   pros::delay(75);
   lift.brake();
 
   chassis.pid_drive_set(-8.5_in, 80);
   chassis.pid_wait();
 
-  lift.move(-110);
+  lift.move_absolute(0, 100);
   pros::delay(400);
+  lift.brake();
   // get + score matchload #1
 
   pros::delay(75);
@@ -1871,10 +1812,11 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  lift.move(-120);
+  lift.move_absolute(0, 100);
+  pros::delay(400);
+  lift.brake();
   chassis.pid_drive_set(-11_in, 80);
   chassis.pid_wait();
-  lift.brake();
 
   // get + score matchload #2
 
@@ -1915,10 +1857,11 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  lift.move(-110);
+  lift.move_absolute(0, 100);
+  pros::delay(400);
+  lift.brake();
   chassis.pid_drive_set(-13_in, 80);
   chassis.pid_wait();
-  lift.brake();
 
   // get + score matchload #3
 
@@ -1961,10 +1904,11 @@ void skills_attempt3andahalf(){
 
   // toggle 1
 
-  lift.move(-110);
+  lift.move_absolute(0, 100);
+  pros::delay(400);
+  lift.brake();
   chassis.pid_drive_set(-8_in, 80);
   chassis.pid_wait();
-  lift.brake();
 
   chassis.pid_turn_set(0, 80);
   chassis.pid_wait();
@@ -2009,4 +1953,12 @@ void skills_attempt3andahalf(){
 
   // park
   
+}
+
+void skills_attempt3_entire(){
+
+  skills_attempt3();
+  pros::delay(50);
+  skills_attempt3andahalf();
+
 }
