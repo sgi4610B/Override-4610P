@@ -1721,7 +1721,7 @@ void skills_attempt3andahalf(){
 
   liftSensor.set_position(0);
 
-  chassis.pid_drive_set(-20.5_in, 85);
+  chassis.pid_drive_set(-22.3_in, 85);
   chassis.pid_wait();
 
   pros::delay(75);
@@ -1729,7 +1729,7 @@ void skills_attempt3andahalf(){
   chassis.pid_wait();
 
   pros::delay(75);
-  chassis.pid_drive_set(13.75_in, 45);
+  chassis.pid_drive_set(12.75_in, 45);
   chassis.pid_wait();
 
   pros::delay(75);
@@ -1739,36 +1739,176 @@ void skills_attempt3andahalf(){
 
   // put on other alliance goal
 
-  chassis.pid_drive_set(-19_in, 55);
+    chassis.pid_drive_set(-3_in, 55);
   chassis.pid_wait();
 
-  lift.move(80);
-  chassis.pid_turn_set(-27.5_deg, 55);
+  chassis.pid_turn_set(148_deg, 55);
   chassis.pid_wait();
-  lift.set_brake_mode(MOTOR_BRAKE_HOLD);
-  lift.brake();
 
-  chassis.pid_drive_set(15_in, 60);
+  chassis.pid_drive_set(-20.5_in, 55);
+  chassis.pid_wait();
+
+  lift.move_absolute(600,80);
+  chassis.pid_turn_set(0_deg, 55);
   chassis.pid_wait();
   
-  chassis.pid_drive_set(4_in, 35);
+  chassis.pid_drive_set(10_in, 35);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-1.4_in, 35);
   chassis.pid_wait();
 
-  lift.move_absolute(200, 60);
+  lift.move_absolute(50, 60);
   pros::delay(250);
   claw.set(true);
-  lift.move_absolute(500, 70);
+  lift.move_absolute(40, 70);
   pros::delay(75);
   lift.brake();
+
+
+  //new get second pin
+
+  chassis.pid_drive_set(-18.4_in, 35);
+  chassis.pid_wait();
+  lift.move_absolute(-100, 60);
+
+
+  chassis.pid_turn_set(148_deg, 55);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(16_in, 35);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+    lift.move_absolute(150,80);
+
+
+  //copied from above
+
+  chassis.pid_drive_set(-14.25_in, 55);
+  chassis.pid_wait();
+
+  lift.move_absolute(800,80);
+
+  chassis.pid_turn_set(0_deg, 55);
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(25_in, 35);
+  //move more back
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-1_in, 35);
+  chassis.pid_wait();
+
+  lift.move_absolute(250, 60);
+  pros::delay(250);
+  claw.set(true);
+  lift.move_absolute(140, 70);
+  pros::delay(75);
+  lift.brake();
+  //
+
+  // get third pin
+
+  lift.move_absolute(40, 70);
+  pros::delay(75);
+  lift.brake();
+  chassis.pid_drive_set(-18.4_in, 35);
+  chassis.pid_wait();
+  lift.move_absolute(-100, 60);
+
+
+  chassis.pid_turn_set(148_deg, 55);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(16_in, 35);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+    lift.move_absolute(150,80);
+
+
+  //copied from above
+
+  chassis.pid_drive_set(-14.25_in, 55);
+  chassis.pid_wait();
+
+  lift.move_absolute(1200,80);
+
+  chassis.pid_turn_set(0_deg, 55);
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(25_in, 35);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-1_in, 35);
+  chassis.pid_wait();
+
+  lift.move_absolute(250, 60);
+  pros::delay(250);
+  claw.set(true);
+  lift.move_absolute(140, 70);
+  pros::delay(75);
+  lift.brake();
+  //
+
+  // get fourth pin
+
+  lift.move_absolute(40, 70);
+  pros::delay(75);
+  lift.brake();
+  chassis.pid_drive_set(-18.4_in, 35);
+  chassis.pid_wait();
+  lift.move_absolute(-100, 60);
+
+
+  chassis.pid_turn_set(148_deg, 55);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(16_in, 35);
+  chassis.pid_wait();
+
+  pros::delay(75);
+  claw.set(false);
+  pros::delay(75);
+    lift.move_absolute(150,80);
+
+
+  //copied from above
+
+  chassis.pid_drive_set(-14.25_in, 55);
+  chassis.pid_wait();
+
+  lift.move_absolute(1400,80);
+
+  chassis.pid_turn_set(0_deg, 55);
+  chassis.pid_wait();
+  
+  chassis.pid_drive_set(25_in, 35);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-1_in, 35);
+  chassis.pid_wait();
+
+  lift.move_absolute(250, 60);
+  pros::delay(250);
+  claw.set(true);
+  lift.move_absolute(140, 70);
+  pros::delay(75);
+  lift.brake();
+  //
+
+
 
   chassis.pid_drive_set(-8.5_in, 80);
   chassis.pid_wait();
 
-  lift.move_absolute(0, 100);
-  pros::delay(400);
+  lift.move_absolute(-100, 100);
+  pros::delay(500);
   lift.brake();
   // get + score matchload #1
 
@@ -1812,8 +1952,8 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  lift.move_absolute(0, 100);
-  pros::delay(400);
+  lift.move_absolute(-100, 110);
+  pros::delay(500);
   lift.brake();
   chassis.pid_drive_set(-11_in, 80);
   chassis.pid_wait();
@@ -1857,8 +1997,8 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
 
-  lift.move_absolute(0, 100);
-  pros::delay(400);
+  lift.move_absolute(-100, 120);
+  pros::delay(500);
   lift.brake();
   chassis.pid_drive_set(-13_in, 80);
   chassis.pid_wait();
@@ -1904,16 +2044,16 @@ void skills_attempt3andahalf(){
 
   // toggle 1
 
-  lift.move_absolute(0, 100);
-  pros::delay(400);
+  lift.move_absolute(-100, 120);
+  pros::delay(550);
   lift.brake();
-  chassis.pid_drive_set(-8_in, 80);
+  chassis.pid_drive_set(-14_in, 80);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(36, 80);
+  chassis.pid_drive_set(40, 80);
   chassis.pid_wait();
 
   chassis.pid_turn_set(270, 80);
@@ -1930,19 +2070,16 @@ void skills_attempt3andahalf(){
 
   // toggle 2
 
-  /*chassis.pid_swing_set(ez::RIGHT_SWING, 180, 120, 90);
-  chassis.pid_wait();*/
-
   chassis.pid_turn_set(75, 85);
   chassis.pid_wait();
 
   chassis.pid_drive_set(-55, 85);
   chassis.pid_wait();
 
-  chassis.pid_turn_set(180, 80);
+  chassis.pid_turn_set(0, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-15_in, 80);
+  chassis.pid_drive_set(-25_in, 80);
   chassis.pid_wait();
   chassis.pid_drive_set(4_in, 90);
   chassis.pid_wait();
@@ -1952,6 +2089,9 @@ void skills_attempt3andahalf(){
   chassis.pid_wait();
 
   // park
+
+  chassis.pid_drive_set(40_in, 120);
+  chassis.pid_wait();
   
 }
 
