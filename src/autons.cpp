@@ -147,11 +147,34 @@ void turn_example() {
 
 void lift_test(){
 
-  lift_reset(21, 100);
+  /*lift.move_absolute(400, 80);
+
+  pros::delay(300);
+
+  lift.move_absolute(-50, 65);
+
+  pros::delay(300);
+
+  chassis.pid_drive_set(6_in, 70);
+  chassis.pid_wait();
+
+  pros::delay(300);*/
+
+  lift.move(100);
+  pros::delay(350);
   lift.set_brake_mode(MOTOR_BRAKE_HOLD);
   lift.brake();
 
-  pros::delay(100);
+  pros::delay(300);
+
+  lift.move(-110);
+  pros::delay(350);
+  lift.brake();
+
+  pros::delay(300);
+
+  chassis.pid_drive_set(6_in, 70);
+  chassis.pid_wait();
 
 }
 
