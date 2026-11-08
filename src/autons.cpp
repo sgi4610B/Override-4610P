@@ -1874,7 +1874,7 @@ void skills_attempt3andahalf(){
   lift.brake();*/
 
 
-
+/*
   //done with pin putting!!
   // toggle 1 - right (closer to #2 alliance goal)
 
@@ -1937,6 +1937,69 @@ void skills_attempt3andahalf(){
   // park
 
   chassis.pid_drive_set(33_in, 120);
+  chassis.pid_wait();
+
+  */
+  
+}
+
+void skills_attempt3_end(){
+
+  //done with pin putting!!
+  // toggle 1 - right (closer to #2 alliance goal)
+
+  lift.move_absolute(-100, 140);
+  pros::delay(500);
+  lift.brake();
+
+  chassis.pid_drive_set(-8.5_in, 80);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(45, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(12, 80);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0, 80);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(30_in, 120);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(-90, 125);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-9_in, 120);
+  chassis.pid_wait();
+  chassis.pid_drive_set(4_in, 120);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-5_in, 120);
+  chassis.pid_wait();
+
+  // toggle 2
+  chassis.pid_drive_set(19, 125);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(45, 125);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-66, 125);
+  chassis.pid_wait();
+
+  chassis.pid_turn_set(0, 120);
+  chassis.pid_wait();
+
+  chassis.pid_drive_set(-18_in, 120);
+  chassis.pid_wait();
+  chassis.pid_drive_set(4_in, 120);
+  chassis.pid_wait();
+  chassis.pid_drive_set(-5_in, 120);
+  chassis.pid_wait();
+
+  // park
+
+  chassis.pid_drive_set(40_in, 120);
   chassis.pid_wait();
   
 }

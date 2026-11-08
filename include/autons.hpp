@@ -20,6 +20,7 @@ void blue_leftLeftCenter();
 void blue_left();
 void skills_attempt3andahalf();
 void skills_attempt3_entire();
+void skills_attempt3_end();
 void left_JustPreload();
 void right_JustPreload();
 void skills_attempt2();
