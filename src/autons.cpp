@@ -1583,7 +1583,7 @@ void skills_attempt3(){
   chassis.pid_drive_set(4, 75);
   chassis.pid_wait();
 
-  lift.move_absolute(500, 100);
+  lift.move_absolute(700, 100);
   pros::delay(500);
 
   chassis.pid_drive_set(8.6_in, 75);
@@ -1624,7 +1624,7 @@ void skills_attempt3(){
   pros::delay(300);
 
   // score pin (#1)
-  lift.move_absolute(890, 70);
+  lift.move_absolute(1000, 70);
   pros::delay(75);
 
   chassis.pid_drive_set(9.7_in, 45);
@@ -1768,7 +1768,7 @@ void skills_attempt3andahalf(){
   chassis.pid_drive_set(-20.5_in, 55);
   chassis.pid_wait();
 
-  lift.move_absolute(600,80);
+  lift.move_absolute(800,80);
   chassis.pid_turn_set(0_deg, 55);
   chassis.pid_wait();
   
@@ -1785,13 +1785,14 @@ void skills_attempt3andahalf(){
 
 
   //new get second pin
+  lift.move_absolute(-100,80);
 
-  chassis.pid_drive_set(-18.4_in, 35);
+  chassis.pid_drive_set(-16.6_in, 35);
   chassis.pid_wait();
   lift.move_absolute(-100, 60);
 
 
-  chassis.pid_turn_set(148_deg, 55);
+  chassis.pid_turn_set(153_deg, 55);
   chassis.pid_wait();
 
   chassis.pid_drive_set(16_in, 35);
@@ -1805,10 +1806,10 @@ void skills_attempt3andahalf(){
 
   //copied from above
 
-  chassis.pid_drive_set(-14.25_in, 55);
+  chassis.pid_drive_set(-12.7_in, 55);
   chassis.pid_wait();
 
-  lift.move_absolute(800,80);
+  lift.move_absolute(1000,80);
 
   chassis.pid_turn_set(0_deg, 55);
   chassis.pid_wait();
@@ -1827,13 +1828,12 @@ void skills_attempt3andahalf(){
   pros::delay(75);
   lift.brake();
   //
-/* This section takes up too much time
   // get third pin
 
-  lift.move_absolute(40, 70);
+  lift.move_absolute(-100, 70);
   pros::delay(75);
   lift.brake();
-  chassis.pid_drive_set(-18.4_in, 35);
+  chassis.pid_drive_set(-18_in, 35);
   chassis.pid_wait();
   lift.move_absolute(-100, 60);
 
@@ -1852,7 +1852,7 @@ void skills_attempt3andahalf(){
 
   //copied from above
 
-  chassis.pid_drive_set(-14.25_in, 55);
+  chassis.pid_drive_set(-12.2_in, 55);
   chassis.pid_wait();
 
   lift.move_absolute(1200,80);
@@ -1871,7 +1871,7 @@ void skills_attempt3andahalf(){
   claw.set(true);
   lift.move_absolute(140, 70);
   pros::delay(75);
-  lift.brake();*/
+  lift.brake();
 
 
 /*
@@ -1958,7 +1958,7 @@ void skills_attempt3_end(){
   chassis.pid_turn_set(45, 80);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(12, 80);
+  chassis.pid_drive_set(13.5, 80);
   chassis.pid_wait();
 
   chassis.pid_turn_set(0, 80);
@@ -1970,12 +1970,24 @@ void skills_attempt3_end(){
   chassis.pid_turn_set(-90, 125);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-9_in, 120);
+  // chassis.pid_drive_set(-9_in, 127);
+  // chassis.pid_wait();
+  // chassis.pid_drive_set(4_in, 127);
+  // chassis.pid_wait();
+  // chassis.pid_drive_set(-5_in, 127);
+  // chassis.pid_wait();
+
+  chassis.drive_set(-127,-127);
+  pros::delay(250);
+  chassis.drive_set(0,0);
+
+  chassis.pid_drive_set(3_in, 127);
   chassis.pid_wait();
-  chassis.pid_drive_set(4_in, 120);
-  chassis.pid_wait();
-  chassis.pid_drive_set(-5_in, 120);
-  chassis.pid_wait();
+
+
+  chassis.drive_set(-127,-127);
+  pros::delay(250);
+  chassis.drive_set(0,0);
 
   // toggle 2
   chassis.pid_drive_set(19, 125);
@@ -1990,12 +2002,19 @@ void skills_attempt3_end(){
   chassis.pid_turn_set(0, 120);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-18_in, 120);
+  chassis.drive_set(-127,-127);
+  pros::delay(500);
+  chassis.drive_set(0,0);
+
+  chassis.pid_drive_set(3_in, 127);
   chassis.pid_wait();
-  chassis.pid_drive_set(4_in, 120);
-  chassis.pid_wait();
-  chassis.pid_drive_set(-5_in, 120);
-  chassis.pid_wait();
+
+
+  chassis.drive_set(-127,-127);
+  pros::delay(250);
+  chassis.drive_set(0,0);
+  
+  pros::delay(500);
 
   // park
 
@@ -2009,5 +2028,7 @@ void skills_attempt3_entire(){
   skills_attempt3();
   pros::delay(50);
   skills_attempt3andahalf();
+  pros::delay(50);
+  skills_attempt3_end();
 
 }

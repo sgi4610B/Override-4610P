@@ -80,9 +80,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Current", skills_attempt3_end},
+      {"Current", skills_attempt3_entire},
       {"Skills 3.5", skills_attempt3andahalf},
-      {"Quadrant Line Pin Auton 1 \n Goal on Right", red_rightRightMid},
+      {"Quadrant Line Pin Auton 1 \n Goal';/ on Right", red_rightRightMid},
       {"Quadrant Line Pin Auton 2 \n Goal on Left", blue_leftMid},
       {"Center Pin Auton 3 \n Goal on Right", red_rightRightMid},
       {"Cetner Pin Auton 4 \n Goal on Left", blue_leftMid},
